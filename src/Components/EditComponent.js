@@ -16,15 +16,20 @@ handleEdit = (event) => {
 render() {
 return (
 <div>
-  <form onSubmit={this.handleEdit}>
-    <input required type="text" ref={(input) => this.getTitle = input}
+  <form  onSubmit={this.handleEdit}>
+  <div className="form-group">
+                <div className="col-md-8 m-auto">
+    <input className="input form-control" required type="text" ref={(input) => this.getTitle = input}
     defaultValue={this.props.post.title} placeholder="Enter Post Title" /><br /><br />
-    <textarea required rows="5" ref={(input) => this.getMessage = input}
+    <textarea className="form-control input" required rows="5" ref={(input) => this.getMessage = input}
     defaultValue={this.props.post.message} cols="28" placeholder="Enter Post" /><br /><br />
-    <button>Update</button>
+    <button className="btn btn-success form-control button">Update</button>
+    </div>
+    </div>
   </form>
 </div>
 );
 }
 }
 export default connect()(EditComponent);
+
