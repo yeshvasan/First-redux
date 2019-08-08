@@ -5,36 +5,35 @@ class PostForm extends Component {
     handleSubmit = (event) => {
        event.preventDefault();
         const title = this.getTitle.value;
-        const message = this.getMessage.value;
+        
         const data = {
             id: new Date(),
             title, 
-            message,
-            editing:false
+            editing:false,
+            completed:false
             
         }
         
         this.props.dispatch({
             type:'ADD_POST',
-            data});
+            data,
+        });
         this.getTitle.value='';
-        this.getMessage.value='';
+        
     }
     render() {
         return (
             <React.Fragment>
             <div className="container">
             <div className="row">
-            <div className="col-md-8 m-auto">
-            <div class="card border border-danger bo  m-2 mt-5 p-4">
+            <div className="col-md-12 m-auto">
+            <div className="card border border-danger m-2 mt-5 p-4">
 
-                <h1>Create Post</h1>
-                <form className="form-horizontal" onSubmit = {this.handleSubmit}>
+                <form onSubmit = {this.handleSubmit}>
                 <div className="form-group">
-                <div className="col-md-8 m-auto">
-                <input className="input form-control" required type="text" ref={(input) =>this.getTitle = input} placeholder="Post Title" /><br /><br />
-                    <textarea className="form-control input" required rows="5" ref={(input) => this.getMessage=input} cols="28" placeholder="Post" /><br /><br />
-                    <button className="btn btn-success form-control button">Post</button>
+                <div className="col-md-10 m-auto">
+                <input className="form-control" required type="text" ref={(input) =>this.getTitle = input} placeholder="what needs to be done?"  /><br /><br />
+                    <button className="btn btn-success">Add Todo</button>
                     </div>
 
                     </div>
